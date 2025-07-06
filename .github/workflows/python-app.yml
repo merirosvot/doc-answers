@@ -29,10 +29,10 @@ jobs:
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
      
-   # - name: Run script
-   #   env:
-   #     openai_api_key: ${{ secrets.OPENAI_API_KEY }} # Map the GitHub secret to an environment variable
-   #   run: python streamlit_app.py
+    - name: Run script
+      env:
+        openai_api_key: ${{ secrets.OPENAI_API_KEY }} # Map the GitHub secret to an environment variable
+      run: python streamlit_app.py
    # - name: Lint with flake8
    #   run: |
         # stop the build if there are Python syntax errors or undefined names
