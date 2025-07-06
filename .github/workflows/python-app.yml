@@ -31,7 +31,7 @@ jobs:
      
     - name: Run script
       env:
-        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }} # Map the GitHub secret to an environment variable
+        openai_api_key: ${{ secrets.OPENAI_API_KEY }} # Map the GitHub secret to an environment variable
       run: python streamlit_app.py
    # - name: Lint with flake8
    #   run: |
