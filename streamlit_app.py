@@ -14,6 +14,7 @@ st.title("📄 Document question answering")
 # via `st.secrets`, see https://docs.streamlit.io/develop/concepts/connections/secrets-management
 # openai_api_key = os.environ["openai_api_key"]
 # openai_api_key = os.getenv("MY_API_KEY")
+st.write("DB username:", st.secrets["OPENAI_API_KEY"])
 openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 # openai_api_key = st.text_input("OpenAI API Key", type="password")
