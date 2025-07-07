@@ -30,7 +30,7 @@ else:
     input_text = st.text_area(
         "Либо скопируйте свой текст прямо сюда:",
         placeholder=" ",
-        disabled= uploaded_file,
+    #    disabled= uploaded_file,
     )
     
     # Ask the user for a question via `st.text_area`.
