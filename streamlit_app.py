@@ -26,7 +26,13 @@ else:
     uploaded_file = st.file_uploader(
         "Загрузите свой текст здесь (.txt или .md)", type=("txt", "md")
     )
-
+    # 
+    input_text = st.text_area(
+        "Либо скопируйте свой текст прямо сюда:",
+        placeholder=" ",
+        disabled= uploaded_file,
+    )
+    
     # Ask the user for a question via `st.text_area`.
     question = st.text_area(
         "Задайте вопрос по тексту!",
@@ -34,7 +40,8 @@ else:
         disabled=not uploaded_file,
     )
 
-    if uploaded_file and question:
+    if uploaded_file 
+      if question:
 
         # Process the uploaded file and question.
         document = uploaded_file.read().decode()
@@ -44,8 +51,19 @@ else:
                 "content": f"Here's a document: {document} \n\n---\n\n {question}",
             }
         ]
+    elif input_text   
+       if question:
 
-        # Generate an answer using the OpenAI API.
+         # Process the uploaded file and question.
+          document = uploaded_file.read().decode()
+          messages = [
+             {
+                 "role": "user",
+                 "content": f"Here's a document: {document} \n\n---\n\n {question}",
+             }
+           ]
+    
+    # Generate an answer using the OpenAI API.
         stream = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=messages,
