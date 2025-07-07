@@ -60,9 +60,9 @@ else:
 
     elif input_text and question:
 
-         # Process the uploaded file and question.
-          document = input_text
-          messages = [
+        # Process the uploaded file and question.
+        document = input_text
+        messages = [
              {
                  "role": "user",
                  "content": f"Here's a document: {document} \n\n---\n\n {question}",
