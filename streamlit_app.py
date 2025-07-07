@@ -35,9 +35,9 @@ else:
     
     # Ask the user for a question via `st.text_area`.
     question = st.text_area(
-        "Задайте вопрос по тексту!",
+        "Задайте вопрос по тексту:",
         placeholder="Расскажи, о чем этот текст?",
-        disabled=not uploaded_file,
+#        disabled=not uploaded_file,
     )
 
     if uploaded_file and question:
