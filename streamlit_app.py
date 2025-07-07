@@ -64,11 +64,11 @@ else:
            ]
     
     # Generate an answer using the OpenAI API.
-        stream = client.chat.completions.create(
-            model="gpt-4.1",
-            messages=messages,
-            stream=True,
-        )
+    stream = client.chat.completions.create(
+          model="gpt-4.1",
+          messages=messages,
+          stream=True,
+      )
 
         # Stream the response to the app using `st.write_stream`.
-        st.write_stream(stream)
+     st.write_stream(stream)
