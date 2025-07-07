@@ -40,8 +40,7 @@ else:
         disabled=not uploaded_file,
     )
 
-    if uploaded_file: 
-      if question:
+    if uploaded_file and question:
 
         # Process the uploaded file and question.
         document = uploaded_file.read().decode()
@@ -51,8 +50,14 @@ else:
                 "content": f"Here's a document: {document} \n\n---\n\n {question}",
             }
         ]
-    elif input_text:   
-       if question:
+    # Generate an answer using the OpenAI API.
+        stream = client.chat.completions.create(
+              model="gpt-4.1",
+              messages=messages,
+              stream=True,
+          )
+
+    elif input_text and question:
 
          # Process the uploaded file and question.
           document = input_text
@@ -63,12 +68,12 @@ else:
              }
            ]
     
-    # Generate an answer using the OpenAI API.
-    stream = client.chat.completions.create(
-          model="gpt-4.1",
-          messages=messages,
-          stream=True,
-      )
+        # Generate an answer using the OpenAI API.
+        stream = client.chat.completions.create(
+              model="gpt-4.1",
+              messages=messages,
+              stream=True,
+          )
 
         # Stream the response to the app using `st.write_stream`.
     st.write_stream(stream)
