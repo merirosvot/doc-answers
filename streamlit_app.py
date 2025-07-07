@@ -14,7 +14,7 @@ st.title("📄 Задавайте вопросы по тексту")
 # via `st.secrets`, see https://docs.streamlit.io/develop/concepts/connections/secrets-management
 # openai_api_key = os.environ["openai_api_key"]
 openai_api_key = st.secrets["OPENAI_API_KEY"]
-
+st.info(openai_api_key)
 # openai_api_key = st.text_input("OpenAI API Key", type="password")
 if not openai_api_key:
     st.info("Please add your OpenAI API key to continue.", icon="🗝️")
