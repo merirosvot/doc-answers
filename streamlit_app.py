@@ -71,4 +71,4 @@ else:
       )
 
         # Stream the response to the app using `st.write_stream`.
-     st.write_stream(stream)
+    st.write_stream(stream)
