@@ -40,7 +40,7 @@ else:
         disabled=not uploaded_file,
     )
 
-    if uploaded_file 
+    if uploaded_file: 
       if question:
 
         # Process the uploaded file and question.
@@ -51,11 +51,11 @@ else:
                 "content": f"Here's a document: {document} \n\n---\n\n {question}",
             }
         ]
-    elif input_text   
+    elif input_text:   
        if question:
 
          # Process the uploaded file and question.
-          document = uploaded_file.read().decode()
+          document = input_text
           messages = [
              {
                  "role": "user",
@@ -65,7 +65,7 @@ else:
     
     # Generate an answer using the OpenAI API.
         stream = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4.1",
             messages=messages,
             stream=True,
         )
