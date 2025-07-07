@@ -25,13 +25,13 @@ else:
 
     # Let the user upload a file via `st.file_uploader`.
     uploaded_file = st.file_uploader(
-        "Загрузите свой текс здесь (.txt или .md)", type=("txt", "md")
+        "Загрузите свой текст здесь (.txt или .md)", type=("txt", "md")
     )
 
     # Ask the user for a question via `st.text_area`.
     question = st.text_area(
         "Задайте вопрос по тексту!",
-        placeholder="Расскажи, очем этот текст?",
+        placeholder="Расскажи, о чем этот текст?",
         disabled=not uploaded_file,
     )
 
