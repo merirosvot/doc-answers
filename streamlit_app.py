@@ -15,9 +15,9 @@ else:
     client = OpenAI(api_key=openai_api_key)
 
     model = st.selectbox(
-    "Выберите ИИ модель:",
-    ("gpt-4.1", "o4-mini", "o3"),
-)
+      "Выберите ИИ модель:",
+      ("gpt-4.1", "o4-mini", "o3"),
+    )
     # Let the user upload a file via `st.file_uploader`.
     uploaded_file = st.file_uploader(
         "Загрузите свой текст здесь (.txt или .md)", type=("txt", "md")
