@@ -16,7 +16,7 @@ else:
 
     model = st.selectbox(
       "Выберите ИИ модель:",
-      ("gpt-4.1", "o4-mini", "o3"),
+      ("gpt-4.1", "o4-mini", "o3-pro"),
     )
     # Let the user upload a file via `st.file_uploader`.
     uploaded_file = st.file_uploader(
