@@ -6,15 +6,7 @@ from openai import OpenAI
 st.title("📄 Задавайте вопросы по тексту")
 #st.write(
 #    "Upload a document below and ask a question about it – GPT will answer! "
-#    "To use this app, you need to provide an OpenAI API key, which you can get [here](https://platform.openai.com/account/api-keys). "
-#)
-
-# Ask user for their OpenAI API key via `st.text_input`.
-# Alternatively, you can store the API key in `./.streamlit/secrets.toml` and access it
-# via `st.secrets`, see https://docs.streamlit.io/develop/concepts/connections/secrets-management
-# openai_api_key = os.environ["openai_api_key"]
 openai_api_key = st.secrets["OPENAI_API_KEY"]
-# openai_api_key = st.text_input("OpenAI API Key", type="password")
 if not openai_api_key:
     st.info("Please add your OpenAI API key to continue.", icon="🗝️")
 else:
@@ -40,35 +32,25 @@ else:
 #        disabled=not uploaded_file,
     )
 
-    if uploaded_file and question:
-
-        # Process the uploaded file and question.
-        document = uploaded_file.read().decode()
-        messages = [
-            {
-                "role": "user",
-                "content": f"Here's a document: {document} \n\n---\n\n {question}",
-            }
-          ]
-        # Generate an answer using the OpenAI API.
-        stream = client.chat.completions.create(
-              model="gpt-4.1",
-              messages=messages,
-              stream=True,
-           )
-        st.write_stream(stream)
-
-    elif input_text and question:
-
-        # Process the uploaded file and question.
-        document = input_text
-        messages = [
-             {
-                 "role": "user",
-                 "content": f"Here's a document: {document} \n\n---\n\n {question}",
-             }
-           ]
-    
+    if question:
+        if uploaded_file: 
+           # Process the uploaded file and question.
+           document = uploaded_file.read().decode()
+           messages = [
+               {
+                   "role": "user",
+                   "content": f"Here's a document: {document} \n\n---\n\n {question}",
+               }
+             ]
+        elif input_text:
+           # Process input text and question.
+           document = input_text
+           messages = [
+                {
+                    "role": "user",
+                    "content": f"Here's a document: {document} \n\n---\n\n {question}",
+                }
+              ]
         # Generate an answer using the OpenAI API.
         stream = client.chat.completions.create(
               model="gpt-4.1",
