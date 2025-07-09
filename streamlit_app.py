@@ -1,6 +1,7 @@
 import streamlit as st
 # import os
 import pandas as pd
+import faiss
 from openai import OpenAI
 
 # Show title and description.
