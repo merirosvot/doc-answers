@@ -54,6 +54,14 @@ else:
         )
        documents = loader.load()
     st.write(documents)
+    index = faiss.IndexFlatL2(len(embeddings('hello world')))
+
+    vector_store = FAISS(
+        embedding_function=embeddings,
+        index=index,
+        docstore= InMemoryDocstore(),
+        index_to_docstore_id={}
+    )
     st.divider()
 
     with st.form("question_form"):
