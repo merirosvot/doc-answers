@@ -36,14 +36,16 @@ else:
 #        placeholder="Расскажи, о чем этот текст?",
 #        disabled=not uploaded_file,
 #    )
+    with st.form("qa_form"):
+       df = pd.DataFrame(
+           [
+              {"Вопрос": "?", "Ответ": 2},
+              {"Вопрос": "?", "Ответ": 4},
+              {"Вопрос": "?", "Ответ": 3},
+          ]
+       )
+       submitted = st.form_submit_button("Отправить") 
  
-    df = pd.DataFrame(
-        [
-           {"Вопрос": "?", "Ответ": 2},
-           {"Вопрос": "?", "Ответ": 4},
-           {"Вопрос": "?", "Ответ": 3},
-       ]
-    )
     edited_df = st.data_editor(df)
 
     st.divider()
