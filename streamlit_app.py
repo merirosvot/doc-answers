@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import langchain 
-import faiss
+#import faiss
 from openai import OpenAI
 from langchain.document_loaders import DataFrameLoader
 from langchain_community.vectorstores.faiss import FAISS
