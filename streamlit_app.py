@@ -3,6 +3,7 @@ import pandas as pd
 import langchain 
 from openai import OpenAI
 from langchain.document_loaders import DataFrameLoader
+from langchain_community.vectorstores.faiss import FAISS
 
 # Show title and description.
 st.title("📄 Задавайте вопросы по тексту")
@@ -15,7 +16,10 @@ else:
 
     # Create an OpenAI client.
     client = OpenAI(api_key=openai_api_key)
-
+    embeddings = client.embeddings.create(
+       input="Your text string goes here",
+       model="text-embedding-3-small"
+     )
     model = st.selectbox(
       "Выберите ИИ модель:",
       ("gpt-4.1", "o4-mini", "gpt-4o"),
