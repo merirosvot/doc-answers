@@ -30,12 +30,8 @@ else:
     #    disabled= uploaded_file,
     )
     
-    # Ask the user for a question via `st.text_area`.
-#    question = st.text_area(
-#        "Задайте вопрос по тексту:",
-#        placeholder="Расскажи, о чем этот текст?",
-#        disabled=not uploaded_file,
-#    )
+    st.divider()
+
     with st.form("qa_form"):
        df = pd.DataFrame(
            [
