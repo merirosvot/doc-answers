@@ -35,9 +35,11 @@ else:
         placeholder="Расскажи, о чем этот текст?",
 #        disabled=not uploaded_file,
     )
-    st.form_submit_button(label="Submit", help=None, on_click=None, type="secondary")
-    
-    if question:
+    st.form_submit_button(label="Отправить", help=None, on_click=None, type="secondary")
+    with st.form("question_form"):
+        question = st.text_input("Задайте вопрос по тексту:", "")
+        submitted = st.form_submit_button("Отправить")
+    if submitted:
         if uploaded_file: 
            # Process the uploaded file and question.
            document = uploaded_file.read().decode()
