@@ -45,7 +45,7 @@ else:
           ]
        )
        edited_df = st.data_editor(df)
-       submitted = st.form_submit_button("Отправить") 
+    submitted = st.form_submit_button("Отправить") 
 
     st.divider()
 
