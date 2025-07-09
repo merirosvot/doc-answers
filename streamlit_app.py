@@ -46,8 +46,8 @@ else:
        edited_df = st.data_editor(df)
        qa_submitted = st.form_submit_button("Отправить") 
        loader = DataFrameLoader(
-           datarame: df
-           page_content_column: "Вопрос"
+           dataframe: df,
+           page_content_column: "Вопрос",
         )
        documents = loader.load()
     st.write(Documents)
