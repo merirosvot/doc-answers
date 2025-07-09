@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import faiss
 from openai import OpenAI
+from langchain.document_loaders import DataFrameLoader
 
 # Show title and description.
 st.title("📄 Задавайте вопросы по тексту")
@@ -44,7 +45,11 @@ else:
        )
        edited_df = st.data_editor(df)
        qa_submitted = st.form_submit_button("Отправить") 
-
+       loader = DataFrameLoader(
+           datarame: df
+           page_content_column: "Вопрос"
+        )
+       documents = loader.load()
     st.divider()
 
     with st.form("question_form"):
