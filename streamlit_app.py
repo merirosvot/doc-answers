@@ -39,20 +39,20 @@ else:
     with st.form("qa_form"):
        df = pd.DataFrame(
            [
-              {"Вопрос": "?", "Ответ": 2},
-              {"Вопрос": "?", "Ответ": 4},
-              {"Вопрос": "?", "Ответ": 3},
+              {"Вопрос": "?", "Ответ": "2"},
+              {"Вопрос": "?", "Ответ": "4"},
+              {"Вопрос": "?", "Ответ": "3"},
           ]
        )
        edited_df = st.data_editor(df)
-    submitted = st.form_submit_button("Отправить") 
+       qa_submitted = st.form_submit_button("Отправить") 
 
     st.divider()
 
     with st.form("question_form"):
         question = st.text_input("Задайте вопрос по тексту:", "")
-        submitted = st.form_submit_button("Отправить")
-    if submitted:
+        q_submitted = st.form_submit_button("Отправить")
+    if q_submitted:
         if uploaded_file: 
            # Process the uploaded file and question.
            document = uploaded_file.read().decode()
