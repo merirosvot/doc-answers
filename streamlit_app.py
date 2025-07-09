@@ -50,6 +50,7 @@ else:
            page_content_column: "Вопрос"
         )
        documents = loader.load()
+    st.write(Documents)
     st.divider()
 
     with st.form("question_form"):
