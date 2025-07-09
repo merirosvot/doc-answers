@@ -33,6 +33,7 @@ else:
     st.divider()
 
     with st.form("qa_form"):
+       st.write("Заведите свои ЧаВо")
        df = pd.DataFrame(
            [
               {"Вопрос": "?", "Ответ": "2"},
