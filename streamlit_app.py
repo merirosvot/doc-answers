@@ -1,5 +1,6 @@
 import streamlit as st
-import os
+# import os
+import pandas as pd
 from openai import OpenAI
 
 # Show title and description.
@@ -36,6 +37,15 @@ else:
 #        disabled=not uploaded_file,
 #    )
  
+    df = pd.DataFrame(
+        [
+           {"Вопрос": "?", "Ответ": 2},
+           {"Вопрос": "?", "Ответ": 4},
+           {"Вопрос": "?", "Ответ": 3},
+       ]
+    )
+    edited_df = st.data_editor(df)
+
     with st.form("question_form"):
         question = st.text_input("Задайте вопрос по тексту:", "")
         submitted = st.form_submit_button("Отправить")
