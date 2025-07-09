@@ -1,5 +1,5 @@
 import streamlit as st
-# import os
+import langchain_community
 import pandas as pd
 #import faiss
 from langchain_community.vectorstores.faiss import FAISS
