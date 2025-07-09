@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import langchain 
+import faiss
 from openai import OpenAI
 from langchain.document_loaders import DataFrameLoader
 from langchain_community.vectorstores.faiss import FAISS
@@ -54,7 +55,7 @@ else:
         )
        documents = loader.load()
     st.write(documents)
-    index = FAISS.IndexFlatL2(len(embeddings('hello world')))
+    index = faiss.IndexFlatL2(len(embeddings('hello world')))
 
     vector_store = FAISS(
         embedding_function=embeddings,
