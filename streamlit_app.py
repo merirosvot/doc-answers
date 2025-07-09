@@ -35,7 +35,8 @@ else:
         placeholder="Расскажи, о чем этот текст?",
 #        disabled=not uploaded_file,
     )
-
+    st.form_submit_button(label="Submit", help=None, on_click=None, type="secondary")
+    
     if question:
         if uploaded_file: 
            # Process the uploaded file and question.
