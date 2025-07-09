@@ -44,9 +44,8 @@ else:
               {"Вопрос": "?", "Ответ": 3},
           ]
        )
+       edited_df = st.data_editor(df)
        submitted = st.form_submit_button("Отправить") 
- 
-    edited_df = st.data_editor(df)
 
     st.divider()
 
