@@ -30,12 +30,12 @@ else:
     )
     
     # Ask the user for a question via `st.text_area`.
-    question = st.text_area(
-        "Задайте вопрос по тексту:",
-        placeholder="Расскажи, о чем этот текст?",
+#    question = st.text_area(
+#        "Задайте вопрос по тексту:",
+#        placeholder="Расскажи, о чем этот текст?",
 #        disabled=not uploaded_file,
-    )
-    st.form_submit_button(label="Отправить", help=None, on_click=None, type="secondary")
+#    )
+ 
     with st.form("question_form"):
         question = st.text_input("Задайте вопрос по тексту:", "")
         submitted = st.form_submit_button("Отправить")
