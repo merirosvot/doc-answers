@@ -54,7 +54,7 @@ else:
         )
        documents = loader.load()
     st.write(documents)
-    index = faiss.IndexFlatL2(len(embeddings('hello world')))
+    index = FAISS.IndexFlatL2(len(embeddings('hello world')))
 
     vector_store = FAISS(
         embedding_function=embeddings,
