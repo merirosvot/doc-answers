@@ -47,7 +47,7 @@ else:
        qa_submitted = st.form_submit_button("Отправить") 
        loader = DataFrameLoader(
            dataframe = df,
-           page_content_column = "Вопрос",
+           page_content_column = "Вопрос"
         )
        documents = loader.load()
     st.write(Documents)
