@@ -50,7 +50,7 @@ else:
        edited_df = st.data_editor(df)
        qa_submitted = st.form_submit_button("Отправить") 
        loader = DataFrameLoader(
-           data_frame = edited.df,
+           data_frame = edited_df,
            page_content_column = "Вопрос"
         )
     if qa_submitted:
