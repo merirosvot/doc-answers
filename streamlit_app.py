@@ -1,4 +1,4 @@
-import streamlit as st
+tedimport streamlit as st
 import pandas as pd
 import langchain 
 #import faiss
@@ -50,7 +50,7 @@ else:
        edited_df = st.data_editor(df)
        qa_submitted = st.form_submit_button("Отправить") 
        loader = DataFrameLoader(
-           data_frame = df,
+           data_frame = edited.df,
            page_content_column = "Вопрос"
         )
     if qa_submitted:
