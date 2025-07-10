@@ -55,7 +55,7 @@ else:
         )
     if qa_submitted:
        documents = loader.load()
-    st.write(documents)
+       st.write(documents)
 
     st.divider()
 
