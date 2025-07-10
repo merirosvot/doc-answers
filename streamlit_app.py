@@ -53,7 +53,7 @@ else:
            data_frame = df,
            page_content_column = "Вопрос"
         )
-    if qa_submitted
+    if qa_submitted:
        documents = loader.load()
     st.write(documents)
 
