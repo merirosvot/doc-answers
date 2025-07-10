@@ -55,14 +55,7 @@ else:
         )
        documents = loader.load()
     st.write(documents)
-    #index = faiss.IndexFlatL2(len(embeddings('hello world')))
 
-    vector_store = FAISS(
-        embedding_function=embeddings,
-        index=index,
-        docstore= InMemoryDocstore(),
-        index_to_docstore_id={}
-    )
     st.divider()
 
     with st.form("question_form"):
@@ -72,27 +65,18 @@ else:
         if uploaded_file: 
            # Process the uploaded file and question.
            document = uploaded_file.read().decode()
-           messages = [
-               {
-                   "role": "user",
-                   "content": f"Here's a document: {document} \n\n---\n\n {question}",
-               }
-             ]
         elif input_text:
            # Process input text and question.
            document = input_text
-           messages = [
-                {
-                    "role": "user",
-                    "content": f"Here's a document: {document} \n\n---\n\n {question}",
-                }
-              ]
+        messages = [
+            {"role": "system", "content": f"Отвечай используя информацию из документа"},
+            {"role": "user", "content": f"Документ: {document} \n\n---\n\n {question}",}
+        ]
         # Generate an answer using the OpenAI API.
         stream = client.chat.completions.create(
               model=model,
               messages=messages,
               stream=True,
           )
-
         # Stream the response to the app using `st.write_stream`.
         st.write_stream(stream)
