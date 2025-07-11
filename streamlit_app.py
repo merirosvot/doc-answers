@@ -59,10 +59,10 @@ else:
        text_splitter = RecursiveCharacterTextSplitter(
        chunk_size=1000, chunk_overlap=200, add_start_index=True
        )
-       all_splits = text_splitter.split_documents(docs)
+       all_splits = text_splitter.split_documents(documents)
        len(all_splits)
        vector_store = InMemoryVectorStore(embeddings)
-       ids = vector_store.add_documents(documents=documents)
+       ids = vector_store.add_documents(documents=all_splits)
        results = vector_store.similarity_search("www?")
        print(results[0])
     st.divider()
