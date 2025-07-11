@@ -5,7 +5,7 @@ import langchain
 from openai import OpenAI
 from langchain.document_loaders import DataFrameLoader
 #from langchain_community.vectorstores.faiss import FAISS
-from langchain_chroma import chroma
+#from langchain_chroma import chroma
 
 # Show title and description.
 st.title("📄 Задавайте вопросы по тексту")
