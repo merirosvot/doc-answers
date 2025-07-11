@@ -104,4 +104,4 @@ else:
        answer = doc.metadata
        st.write(f"Score: {score}\n")
        st.write(doc)
-       s.write(answer) 
+       st.write(answer) 
