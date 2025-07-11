@@ -57,6 +57,7 @@ else:
        st.write(documents)
 
     vector_store = InMemoryVectorStore(embeddings)
+    ids = vector_store.add_documents(documents=documents)
     
     st.divider()
 # Форма для ввода вопроса пользователя
