@@ -56,7 +56,11 @@ else:
     if qa_submitted:
        documents = loader.load()
        st.write(documents)
-
+       text_splitter = RecursiveCharacterTextSplitter(
+       chunk_size=1000, chunk_overlap=200, add_start_index=True
+       )
+       all_splits = text_splitter.split_documents(docs)
+       len(all_splits)
        vector_store = InMemoryVectorStore(embeddings)
        ids = vector_store.add_documents(documents=documents)
        results = vector_store.similarity_search("www?")
