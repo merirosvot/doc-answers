@@ -67,9 +67,9 @@ else:
        st.write("Заведите свои ЧаВо")
        df = pd.DataFrame(
            [
-              {"Question": "?", "Answer": "2"},
-              {"Question": "?", "Answer": "4"},
-              {"Question": "?", "Answer": "3"},
+              {"Question": "Что?", "Answer": "Streamlit"},
+              {"Question": "Где?", "Answer": "Здесь"},
+              {"Question": "Когда?", "Answer": "Сейчас"},
           ]
        )
        edited_df = st.data_editor(df)
