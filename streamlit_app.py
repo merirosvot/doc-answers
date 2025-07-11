@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import langchain 
 from openai import OpenAI
+from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.document_loaders import DataFrameLoader
 from langchain_core.vectorstores import InMemoryVectorStore
@@ -17,10 +18,8 @@ else:
 
     # Create an OpenAI client.
     client = OpenAI(api_key=openai_api_key)
-    embeddings = client.embeddings.create(
-       input="Your text string goes here",
-       model="text-embedding-3-small"
-     )
+    embeddings_ai = client.embeddings.create(model="text-embedding-3-small")
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
     model = st.selectbox(
       "Выберите ИИ модель:",
       ("gpt-4.1", "o4-mini", "gpt-4o"),
