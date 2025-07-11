@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import langchain 
 from openai import OpenAI
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.document_loaders import DataFrameLoader
 from langchain_core.vectorstores import InMemoryVectorStore
 
