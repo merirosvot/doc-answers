@@ -1,4 +1,4 @@
-tedimport streamlit as st
+import streamlit as st
 import pandas as pd
 import langchain 
 #import faiss
