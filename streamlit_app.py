@@ -18,7 +18,7 @@ else:
 
     # Create an OpenAI client.
     client = OpenAI(api_key=openai_api_key)
-    embeddings_ai = client.embeddings.create(model="text-embedding-3-small")
+#    embeddings_ai = client.embeddings.create(input = "Test", model="text-embedding-3-small")
     embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
     model = st.selectbox(
       "Выберите ИИ модель:",
