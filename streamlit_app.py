@@ -67,9 +67,9 @@ else:
        st.write("Заведите свои ЧаВо")
        df = pd.DataFrame(
            [
-              {"Вопрос": "?", "Ответ": "2"},
-              {"Вопрос": "?", "Ответ": "4"},
-              {"Вопрос": "?", "Ответ": "3"},
+              {"Question": "?", "Answer": "2"},
+              {"Question": "?", "Answer": "4"},
+              {"Question": "?", "Answer": "3"},
           ]
        )
        edited_df = st.data_editor(df)
@@ -77,7 +77,7 @@ else:
        qa_submitted = st.form_submit_button("Отправить") 
        loader = DataFrameLoader(
            data_frame = edited_df,
-           page_content_column = "Вопрос"
+           page_content_column = "Question"
         )
     if qa_submitted:
        documents = loader.load()
