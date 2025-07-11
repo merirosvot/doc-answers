@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 import langchain 
-from openai import OpenAI
+#from openai import OpenAI
+from langchain_openai import OpenAI
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.document_loaders import DataFrameLoader
@@ -86,14 +87,16 @@ else:
        all_splits = text_splitter.split_documents(documents)
        st.write(len(all_splits))
        vector_1 = embeddings.embed_query(all_splits[0].page_content)
-       print(vector_1[:10])
+       st.write(vector_1[:10])
+       
        vector_store = InMemoryVectorStore(embeddings)
        
        ids = vector_store.add_documents(documents=all_splits)
        results = vector_store.similarity_search("www?")
        print(results[0])
-    with st.form("question_form_faq"):
-        question2 = st.text_input("Задайте вопрос по FAQ:", "")
-        q_submitted2 = st.form_submit_button("Отправить")
-    if q_submitted2:
-        st.write(question2)
+        
+       with st.form("question_form_faq"):
+           question2 = st.text_input("Задайте вопрос по FAQ:", "")
+           q_submitted2 = st.form_submit_button("Отправить")
+       if q_submitted2:
+           st.write(question2)
