@@ -84,8 +84,11 @@ else:
        chunk_size=1000, chunk_overlap=200, add_start_index=True
        )
        all_splits = text_splitter.split_documents(documents)
-       len(all_splits)
+       st.write(len(all_splits))
+       vector_1 = embeddings.embed_query(all_splits[0].page_content)
+       print(vector_1[:10])
        vector_store = InMemoryVectorStore(embeddings)
+       
        ids = vector_store.add_documents(documents=all_splits)
        results = vector_store.similarity_search("www?")
        print(results[0])
