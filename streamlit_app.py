@@ -100,5 +100,8 @@ else:
            question2 = st.text_input("Задайте вопрос по FAQ:", "")
            q_submitted2 = st.form_submit_button("Отправить")
        if q_submitted2:
-           results = vector_store.similarity_search(question2)
-           print(results[0])
+           results = vector_store.similarity_search_with_score(question2)
+           #print(results[0])
+           doc, score = results[0]
+           print(f"Score: {score}\n")
+           print(doc)
