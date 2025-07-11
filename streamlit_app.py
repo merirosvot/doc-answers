@@ -86,7 +86,7 @@ else:
        )
        all_splits = text_splitter.split_documents(documents)
        st.write("splits:") 
-       st.write(len(all_splits)
+       st.write(len(all_splits))
        vector_1 = embeddings.embed_query(all_splits[0].page_content)
        st.write(vector_1[:10])
        
