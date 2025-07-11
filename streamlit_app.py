@@ -101,7 +101,7 @@ else:
        results2 = vector_store.similarity_search_with_score(question2)
            #print(results[0])
        doc, score = results2[0]
-       answer = doc.metadata
+       answer = doc.metadata.Answers
        st.write(f"Score: {score}\n")
        st.write(doc)
        st.write(answer) 
