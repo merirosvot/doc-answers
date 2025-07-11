@@ -94,15 +94,12 @@ else:
        vector_store = InMemoryVectorStore(embeddings)
        
        ids = vector_store.add_documents(documents=all_splits)
-       results = vector_store.similarity_search("www?")
-       st.write(results[0])
+       results1 = vector_store.similarity_search("www?")
+       st.write("results1:")
+       st.write(results1[0])
         
-       with st.form("question_form_faq"):
-           question2 = st.text_input("Задайте вопрос по FAQ:", "")
-           q_submitted2 = st.form_submit_button("Отправить")
-       if q_submitted2:
-           results = vector_store.similarity_search_with_score(question2)
+       results2 = vector_store.similarity_search_with_score(question2)
            #print(results[0])
-           doc, score = results[0]
-           st.write(f"Score: {score}\n")
-           st.write(doc)
+       doc, score = results2[0]
+       st.write(f"Score: {score}\n")
+       st.write(doc)
