@@ -19,7 +19,7 @@ else:
     # Create an OpenAI client.
     client = OpenAI(api_key=openai_api_key)
 #    embeddings_ai = client.embeddings.create(input = "Test", model="text-embedding-3-small")
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
     model = st.selectbox(
       "Выберите ИИ модель:",
       ("gpt-4.1", "o4-mini", "gpt-4o"),
@@ -89,3 +89,8 @@ else:
        ids = vector_store.add_documents(documents=all_splits)
        results = vector_store.similarity_search("www?")
        print(results[0])
+    with st.form("question_form_faq"):
+        question2 = st.text_input("Задайте вопрос по FAQ:", "")
+        q_submitted2 = st.form_submit_button("Отправить")
+    if q_submitted2:
+        print(question2)
