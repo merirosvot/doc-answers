@@ -56,10 +56,10 @@ else:
        documents = loader.load()
        st.write(documents)
 
-    vector_store = InMemoryVectorStore(embeddings)
-    ids = vector_store.add_documents(documents=documents)
-    results = vector_store.similarity_search("www?")
-    print(results[0])
+       vector_store = InMemoryVectorStore(embeddings)
+       ids = vector_store.add_documents(documents=documents)
+       results = vector_store.similarity_search("www?")
+       print(results[0])
     st.divider()
 # Форма для ввода вопроса пользователя
     with st.form("question_form"):
