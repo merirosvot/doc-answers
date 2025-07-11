@@ -36,6 +36,31 @@ else:
     )
     
     st.divider()
+# Форма для ввода вопроса пользователя
+    with st.form("question_form"):
+        question = st.text_input("Задайте вопрос по тексту:", "")
+        q_submitted = st.form_submit_button("Отправить")
+    if q_submitted:
+        if uploaded_file: 
+           # Process the uploaded file and question.
+           document = uploaded_file.read().decode()
+        elif input_text:
+           # Process input text and question.
+           document = input_text
+        messages = [
+            {"role": "system", "content": f"Отвечай используя информацию из документа"},
+            {"role": "user", "content": f"Документ: {document} \n\n---\n\n {question}",}
+        ]
+        # Generate an answer using the OpenAI API.
+        stream = client.chat.completions.create(
+              model=model,
+              messages=messages,
+              stream=True,
+          )
+        # Stream the response to the app using `st.write_stream`.
+        st.write_stream(stream)
+    st.divider()
+
 # Форма для ввода пар вопросов и ответов
     with st.form("qa_form"):
        st.write("Заведите свои ЧаВо")
@@ -64,27 +89,3 @@ else:
        ids = vector_store.add_documents(documents=all_splits)
        results = vector_store.similarity_search("www?")
        print(results[0])
-    st.divider()
-# Форма для ввода вопроса пользователя
-    with st.form("question_form"):
-        question = st.text_input("Задайте вопрос по тексту:", "")
-        q_submitted = st.form_submit_button("Отправить")
-    if q_submitted:
-        if uploaded_file: 
-           # Process the uploaded file and question.
-           document = uploaded_file.read().decode()
-        elif input_text:
-           # Process input text and question.
-           document = input_text
-        messages = [
-            {"role": "system", "content": f"Отвечай используя информацию из документа"},
-            {"role": "user", "content": f"Документ: {document} \n\n---\n\n {question}",}
-        ]
-        # Generate an answer using the OpenAI API.
-        stream = client.chat.completions.create(
-              model=model,
-              messages=messages,
-              stream=True,
-          )
-        # Stream the response to the app using `st.write_stream`.
-        st.write_stream(stream)
