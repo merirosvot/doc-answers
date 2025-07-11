@@ -36,7 +36,7 @@ else:
     )
     
     st.divider()
-
+# Форма для ввода пар вопросов и ответов
     with st.form("qa_form"):
        st.write("Заведите свои ЧаВо")
        df = pd.DataFrame(
@@ -56,8 +56,10 @@ else:
        documents = loader.load()
        st.write(documents)
 
+    vector_store = InMemoryVectorStore(embeddings)
+    
     st.divider()
-
+# Форма для ввода вопроса пользователя
     with st.form("question_form"):
         question = st.text_input("Задайте вопрос по тексту:", "")
         q_submitted = st.form_submit_button("Отправить")
