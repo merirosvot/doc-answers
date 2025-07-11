@@ -73,6 +73,7 @@ else:
           ]
        )
        edited_df = st.data_editor(df)
+       question2 = st.text_input("Задайте вопрос по FAQ:", "") 
        qa_submitted = st.form_submit_button("Отправить") 
        loader = DataFrameLoader(
            data_frame = edited_df,
