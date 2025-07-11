@@ -94,7 +94,7 @@ else:
        
        ids = vector_store.add_documents(documents=all_splits)
        results = vector_store.similarity_search("www?")
-       print(results[0])
+       st.write(results[0])
         
        with st.form("question_form_faq"):
            question2 = st.text_input("Задайте вопрос по FAQ:", "")
@@ -103,5 +103,5 @@ else:
            results = vector_store.similarity_search_with_score(question2)
            #print(results[0])
            doc, score = results[0]
-           print(f"Score: {score}\n")
-           print(doc)
+           st.write(f"Score: {score}\n")
+           st.write(doc)
