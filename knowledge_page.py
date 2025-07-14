@@ -62,46 +62,4 @@ else:
         st.write_stream(stream)
     st.divider()
 
-# Форма для ввода пар вопросов и ответов
-    with st.form("qa_form"):
-       st.write("Заведите свои ЧаВо")
-       df = pd.DataFrame(
-           [
-              {"Question": "Что?", "Answer": "Streamlit"},
-              {"Question": "Где?", "Answer": "Здесь"},
-              {"Question": "Когда?", "Answer": "Сейчас"},
-          ]
-       )
-       edited_df = st.data_editor(df)
-       question2 = st.text_input("Задайте вопрос по FAQ:", "") 
-       qa_submitted = st.form_submit_button("Отправить") 
-       loader = DataFrameLoader(
-           data_frame = edited_df,
-           page_content_column = "Question"
-        )
-    if qa_submitted:
-       documents = loader.load()
-       st.write(documents)
-       text_splitter = RecursiveCharacterTextSplitter(
-       chunk_size=1000, chunk_overlap=200, add_start_index=True
-       )
-       all_splits = text_splitter.split_documents(documents)
-       st.write("splits:") 
-       st.write(len(all_splits))
-       vector_1 = embeddings.embed_query(all_splits[0].page_content)
-       st.write(vector_1[:10])
-       
-       vector_store = InMemoryVectorStore(embeddings)
-       
-       ids = vector_store.add_documents(documents=all_splits)
-       results1 = vector_store.similarity_search("www?")
-       st.write("results1:")
-       st.write(results1[0])
-        
-       results2 = vector_store.similarity_search_with_score(question2)
-           #print(results[0])
-       doc, score = results2[0]
-       answer = doc.metadata
-       st.write(f"Score: {score}\n")
-       st.write(doc)
-       st.write(answer) 
+
