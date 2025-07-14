@@ -53,6 +53,7 @@ else:
  
        vector_store = InMemoryVectorStore(embeddings)
        ids = vector_store.add_documents(documents=all_splits)
+       retriever = vectorstore.as_retriever() 
 #       results1 = vector_store.similarity_search("www?")
 #       st.write("results1:")
 #       st.write(results1[0])
