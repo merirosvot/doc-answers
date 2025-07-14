@@ -1,11 +1,11 @@
 import streamlit as st
-import pandas as pd
+#import pandas as pd
 import langchain 
 #from openai import OpenAI
 from langchain_openai import OpenAI
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain.document_loaders import DataFrameLoader
+#from langchain.document_loaders import DataFrameLoader
 from langchain_core.vectorstores import InMemoryVectorStore
 def page2():
     st.title("Second page")
