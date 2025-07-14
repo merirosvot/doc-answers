@@ -1,5 +1,5 @@
 import streamlit as st
-#import pandas as pd
+import pandas as pd
 import langchain 
 #from openai import OpenAI
 from langchain_openai import OpenAI
