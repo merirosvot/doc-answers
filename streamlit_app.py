@@ -10,10 +10,10 @@ from langchain_core.vectorstores import InMemoryVectorStore
 def page2():
     st.title("Second page")
 
-pg = st.navigation(position="top", [
+pg = st.navigation([
     st.Page("FAQ_app.py", title="Second page", icon="🔥"),
     st.Page(page1, title="First page", icon=":material/favorite:"),
-])
+], position="top")
 pg.run()
 # Show title and description.
 st.title("📄 Задавайте вопросы по тексту")
