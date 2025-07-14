@@ -7,6 +7,14 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.document_loaders import DataFrameLoader
 from langchain_core.vectorstores import InMemoryVectorStore
+def page2():
+    st.title("Second page")
+
+pg = st.navigation([
+    st.Page("streamlit_app.py", title="First page", icon="🔥"),
+    st.Page(page2, title="Second page", icon=":material/favorite:"),
+])
+pg.run()
 
 # Show title and description.
 st.title("📄 Тестируем FAQ")
