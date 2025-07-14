@@ -2,12 +2,17 @@ import streamlit as st
 import pandas as pd
 import langchain 
 #from openai import OpenAI
+from langchain.chains import create_retrieval_chain
+from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_openai import OpenAI
 from langchain_openai import OpenAIEmbeddings
+from langchain_openai import ChatOpenAI
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.document_loaders import DataFrameLoader
 from langchain_core.vectorstores import InMemoryVectorStore
 
+
+llm = ChatOpenAI()
 
 # Show title and description.
 st.title("📄 Тестируем FAQ")
