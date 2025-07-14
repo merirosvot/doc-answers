@@ -12,7 +12,7 @@ def page2():
 
 pg = st.navigation([
     st.Page("FAQ_app.py", title="Second page", icon="🔥"),
-    st.Page(page1, title="First page", icon=":material/favorite:"),
+    st.Page(streamlit_app, title="First page", icon=":material/favorite:"),
 ], position="top")
 pg.run()
 # Show title and description.
