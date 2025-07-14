@@ -62,6 +62,21 @@ else:
 #       results1 = vector_store.similarity_search("www?")
 #       st.write("results1:")
 #       st.write(results1[0])
+       system_prompt = (
+         "Use the given context to answer the question. "
+         "If you don't know the answer, say you don't know. "
+         "Use three sentence maximum and keep the answer concise. "
+         "Context: {context}"
+       )
+       prompt = ChatPromptTemplate.from_messages(
+         [
+           ("system", system_prompt),
+           ("human", "{input}"),
+         ]
+       )
+       question_answer_chain = create_stuff_documents_chain(llm, prompt)
+       chain = create_retrieval_chain(retriever, question_answer_chain)
+       chain.invoke({"input": query}) 
         
        results = vector_store.similarity_search_with_score(query)
            #print(results[0])
