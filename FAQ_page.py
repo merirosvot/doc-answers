@@ -37,7 +37,7 @@ else:
           ]
        )
        edited_df = st.data_editor(df)
-       question2 = st.text_input("Задайте вопрос по FAQ:", "") 
+       query = st.text_input("Задайте вопрос по FAQ:", "") 
        qa_submitted = st.form_submit_button("Отправить") 
        loader = DataFrameLoader(
            data_frame = edited_df,
@@ -56,15 +56,14 @@ else:
 #       st.write(vector_1[:10])
        
        vector_store = InMemoryVectorStore(embeddings)
-       
        ids = vector_store.add_documents(documents=all_splits)
-       results1 = vector_store.similarity_search("www?")
-       st.write("results1:")
-       st.write(results1[0])
+#       results1 = vector_store.similarity_search("www?")
+#       st.write("results1:")
+#       st.write(results1[0])
         
-       results2 = vector_store.similarity_search_with_score(question2)
+       results = vector_store.similarity_search_with_score(query)
            #print(results[0])
-       doc, score = results2[0]
+       doc, score = results[0]
        answer = doc.metadata
        st.write(f"Score: {score}\n")
        st.write(doc)
