@@ -7,14 +7,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.document_loaders import DataFrameLoader
 from langchain_core.vectorstores import InMemoryVectorStore
-def page1():
-    st.title("First page")
 
-pg = st.navigation([
-    st.Page("FAQ_app.py", title="Second page", icon="🔥"),
-    st.Page(page1, title="First page", icon=":material/favorite:"),
-], position="top")
-pg.run()
 # Show title and description.
 st.title("📄 Задавайте вопросы по тексту")
 #st.write(
