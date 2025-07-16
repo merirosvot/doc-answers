@@ -40,7 +40,7 @@ else:
 # Форма для ввода вопроса пользователя
     with st.form("question_form"):
         question = st.text_input("Задайте вопрос по тексту:", "")
-#        q_submitted = st.form_submit_button("Отправить")
+        q_submitted = st.form_submit_button("Отправить")
     if q_submitted:
         if uploaded_file: 
            # Process the uploaded file and question.
