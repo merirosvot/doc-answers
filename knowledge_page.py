@@ -22,11 +22,11 @@ else:
     client = OpenAI(api_key=openai_api_key)
 #    embeddings_ai = client.embeddings.create(input = "Test", model="text-embedding-3-small")
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
-    llm = ChatOpenAI()
     model = st.selectbox(
       "Выберите ИИ модель:",
       ("gpt-4.1", "o4-mini", "gpt-4o"),
     )
+    llm = ChatOpenAI(model=model)
     # Let the user upload a file via `st.file_uploader`.
     uploaded_file = st.file_uploader(
         "Загрузите свой текст здесь (.txt или .md)", type=("txt", "md")
