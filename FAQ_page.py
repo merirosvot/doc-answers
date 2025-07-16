@@ -79,7 +79,7 @@ else:
        question_answer_chain = create_stuff_documents_chain(llm, prompt)
        chain = create_retrieval_chain(retriever, question_answer_chain)
        chain.invoke({"input": query}) 
-       chain.save(file_path="chain.yaml") 
+
  # -------------------       
        results = vector_store.similarity_search_with_score(query)
            #print(results[0])
