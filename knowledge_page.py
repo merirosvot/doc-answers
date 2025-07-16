@@ -54,14 +54,16 @@ else:
             {"role": "system", "content": f"Отвечай используя информацию из документа"},
             {"role": "user", "content": f"Документ: {document} \n\n---\n\n {question}",}
         ]
+        ai_msg = llm.invoke(messages)
+        ai_msg
         # Generate an answer using the OpenAI API.
-        stream = llm.chat.completions.create(
-              model=model,
-              messages=messages,
-              stream=True,
-          )
+        #stream = llm.chat.completions.create(
+        #      model=model,
+        #      messages=messages,
+        #      stream=True,
+        #  )
         # Stream the response to the app using `st.write_stream`.
-        st.write_stream(stream)
+        #st.write_stream(stream)
     st.divider()
 
 
