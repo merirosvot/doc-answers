@@ -55,7 +55,7 @@ else:
             {"role": "user", "content": f"Документ: {document} \n\n---\n\n {question}",}
         ]
         ai_msg = llm.invoke(messages)
-        ai_msg
+       
         # Generate an answer using the OpenAI API.
         #stream = llm.chat.completions.create(
         #      model=model,
