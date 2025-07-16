@@ -53,7 +53,7 @@ else:
             {"role": "user", "content": f"Документ: {document} \n\n---\n\n {question}",}
         ]
         # Generate an answer using the OpenAI API.
-        stream = client.chat.completions.create(
+        stream = client.completions.create(
               model=model,
               messages=messages,
               stream=True,
