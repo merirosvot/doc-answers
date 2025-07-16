@@ -22,6 +22,7 @@ else:
     client = OpenAI(api_key=openai_api_key)
 #    embeddings_ai = client.embeddings.create(input = "Test", model="text-embedding-3-small")
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    llm = ChatOpenAI()
     model = st.selectbox(
       "Выберите ИИ модель:",
       ("gpt-4.1", "o4-mini", "gpt-4o"),
